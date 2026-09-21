@@ -59,7 +59,8 @@ case "${1:-}" in
         print_status
         ;;
     restore)
-        # Called on login. Only start if it was enabled when last used.
+        # Called on login and on resume from suspend (via hypridle's
+        # after_sleep_cmd). Only start if it was enabled when last used.
         if is_enabled; then
             start_nightlight
         fi
